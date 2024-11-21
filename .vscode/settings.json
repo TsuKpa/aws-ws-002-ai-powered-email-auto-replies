@@ -1,0 +1,18 @@
+{
+    "serverlessConsole.services": [
+        {
+            "type": "dynamodb",
+            "title": "orders",
+            "tableName": "orders",
+            "awsProfile": "default",
+            "region": "us-east-1"
+        },
+        {
+            "type": "dynamodb",
+            "title": "shipments",
+            "tableName": "shipments",
+            "awsProfile": "default",
+            "region": "us-east-1"
+        }
+    ]
+}

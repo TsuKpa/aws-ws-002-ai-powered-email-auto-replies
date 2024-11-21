@@ -1,0 +1,28 @@
+{
+  "name": "send-email",
+  "version": "1.0.0",
+  "description": "If you like this workshop, give me a star ⭐ . Thank you 🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️🙆‍♂️",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "ses"
+  ],
+  "author": "tsukpa",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^22.7.5",
+    "aws-lambda": "^1.0.7",
+    "esbuild": "^0.24.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.670.0",
+    "@aws-sdk/client-ses": "^3.670.0",
+    "dotenv": "^16.4.5",
+    "@aws-lambda-powertools/logger": "^2.8.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Records": [
+    {
+      "messageId": "19dd0b57-b21e-4ac1-bd88-01bbb068cb78",
+      "receiptHandle": "MessageReceiptHandle",
+      "body": "{\"messageId\":\"mescskl4ih3htlctc0lql2ococh8qel1lhuetk01\",\"sender\":\"nqnamfe1996@gmail.com\",\"subject\":\"Re: support ticket #7\",\"text\":[{\"text\":\"Dear Customer,\\n\\nI apologize, but I am unable to assist you with this request. As an email formatting agent, I do not have the capability to engage in open-ended conversations or provide substantive responses on a wide range of topics.\\n\\nMy role is limited to formatting responses in the proper email format, which includes:\\n\\nDear Customer,\\n[YOUR_RESPONSE_WILL_BE_HERE]\\nBest regards,\\nCat shop\\n\\nI do not have the broad knowledge base or conversational skills to participate in the type of dialogue you described. I hope you understand the limitations of my abilities as an email formatting agent.\\n\\nPlease let me know if there is any other way I can assist you with formatting an email response.\\n\\nBest regards,\\nCat shop\"}]}",
+      "attributes": {
+        "ApproximateReceiveCount": "1",
+        "SentTimestamp": "1523232000000",
+        "SenderId": "123456789012",
+        "ApproximateFirstReceiveTimestamp": "1523232000001"
+      },
+      "messageAttributes": {},
+      "md5OfBody": "d44e0904274433c2d1491eede0c5f6f7",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:aws:sqs:us-east-1:123456789012:MyQueue",
+      "awsRegion": "us-east-1"
+    }
+  ]
+}

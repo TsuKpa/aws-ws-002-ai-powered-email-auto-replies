@@ -1,0 +1,5 @@
+region        = "us-east-1"
+bucket_name   = "ai-powered-email-auto-replies-001"
+custom_domain = "YOUR_DOMAIN"
+sender_email  = "YOUR_EMAIL_TEST"
+source_email  = "support@YOUR_DOMAIN"

@@ -1,0 +1,78 @@
+# Workflow for building and deploying a Hugo site to S3
+name: AI Powered email auto reply
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+# Sets permissions of the GITHUB_TOKEN to allow deployment to S3
+permissions:
+  contents: read
+  id-token: write
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "hugo_deploy"
+  cancel-in-progress: false
+# Default to bash
+defaults:
+  run:
+    shell: bash
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    environment: dev # the name config in the github interface
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.133.1/hugo_extended_0.133.1_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build with Hugo
+        env:
+          SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }} #test
+        run: |
+          cd workshop && \
+          hugo --minify
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-site
+          path: ./workshop/public
+  # Deployment job
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev # the name config in the github interface
+    env:
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+        AWS_S3_ASSUME_ROLE: ${{ secrets.AWS_S3_ASSUME_ROLE }}
+        BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+        CF_DISTRIBUTION_ID: ${{ secrets.CF_DISTRIBUTION_ID }}
+    needs: build
+    steps:
+      - name: Download artifacts (Docker images) from previous workflows
+        uses: actions/download-artifact@v4
+        with:
+          name: hugo-site
+          path: ./workshop/public
+      - name: "Configure AWS Credentials"
+        uses: aws-actions/configure-aws-credentials@v4.0.2
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/${{ env.AWS_S3_ASSUME_ROLE }}
+          role-session-name: ${{ env.AWS_S3_ASSUME_ROLE }}
+          mask-aws-account-id: true
+      - name: Sync to S3
+        id: deployment
+        run: aws s3 sync ./workshop/public/ s3://${{ env.BUCKET_NAME }} --delete --cache-control max-age=31536000
+      - name: Cloudfront Invalidation
+        id: flushcache
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.CF_DISTRIBUTION_ID }} --paths "/*"

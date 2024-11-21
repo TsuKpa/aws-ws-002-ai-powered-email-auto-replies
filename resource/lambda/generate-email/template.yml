@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Serverless Email AI
+
+Resources:
+  GenerateEmailLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: GenerateEmailLambda
+      Runtime: nodejs20.x
+      CodeUri: ./GenerateEmailLambda
+      Handler: index.handler
+      Timeout: 10 # Require this to showing error
+      MemorySize: 512 # Dont change this
+      Architectures:
+        - x86_64
+      Environment:
+          Variables:
+            NODE_OPTIONS: --enable-source-maps --max_old_space_size=8192
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Format: esm
+        Minify: true
+        OutExtension:
+          - .js=.mjs
+        Target: "es2020"
+        Sourcemap: true
+        Bundle: true
+        EntryPoints: 
+          - src/index.ts
+        Banner:
+        - js=import { createRequire } from 'module'; const require = createRequire(import.meta.url);

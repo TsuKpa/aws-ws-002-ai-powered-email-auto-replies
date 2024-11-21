@@ -1,0 +1,34 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "local": "tsx ./src/local-test.ts",
+    "prebuild": "rm -rf dist",
+    "build": "esbuild src/index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --out-extension:.js=.mjs --outfile=dist/src/index.js --banner:js='import { createRequire } from 'module'; const require = createRequire(import.meta.url);'",
+    "postbuild": "cd dist/src && zip -r index.zip index.js*"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-lambda-powertools/logger": "^2.8.0",
+    "@aws-sdk/client-bedrock-agent-runtime": "^3.665.0",
+    "@aws-sdk/client-dynamodb": "^3.658.1",
+    "@aws-sdk/client-s3": "^3.658.1",
+    "@aws-sdk/client-sqs": "^3.658.1",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.24.0",
+    "multi-agent-orchestrator": "^0.0.14",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^22.7.4",
+    "tsx": "^4.19.1"
+  }
+}
