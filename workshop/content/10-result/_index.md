@@ -6,18 +6,40 @@ chapter : false
 pre : " <b> 10. </b> "
 ---
 
-1. After all you need to create a new commit or manual trigger the workflow, if the workflow running good the result must be
+1. We will go to the email dashboard, at this workshop i used Gmail, then i send a email with following format
 
-{{< img src="images/7.result/07-result.png" title="07-result" >}}
+```txt
+Do you accept payment methods with credit cards?
+```
 
-2. Recheck S3 bucket have that data
+{{< img src="images/10.result/1.png" title="1" >}}
 
-{{< img src="images/7.result/08-result.png" title="08-result" >}}
+2. Next we will check S3 email
 
-3. Copy Cloudfront URL
+{{< img src="images/10.result/2.png" title="2" >}}
 
-{{< img src="images/7.result/02-result.png" title="02-result" >}}
+3. Our first lambda function ExtractEmailLambda is working, we can see the log in Cloudwatch
 
-4. You can go to Cloudfront URL in new tab to view your result
+{{< img src="images/10.result/3.png" title="3" >}}
 
-{{< img src="images/7.result/09-result.png" title="09-result" >}}
+4. Next we check GenerateEmailLambda
+
+{{< img src="images/10.result/4.png" title="4" >}}
+
+5. And SendEmailLambda
+
+{{< img src="images/10.result/5.png" title="5" >}}
+
+6. Our system is working perfectly :D. And the result is send to my gmail
+
+{{< img src="images/10.result/6.png" title="6" >}}
+
+7. Let's try sending query database
+
+{{< img src="images/10.result/7.png" title="7" >}}
+
+8. Ask something about policy
+
+{{< img src="images/10.result/8.png" title="8" >}}
+
+That's all, I hope you will love this workshop, please comment for any issue <3

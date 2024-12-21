@@ -65,13 +65,13 @@ export async function orderManagementToolHandler(response: ConversationMessage, 
 
             switch (toolUseName) {
                 case "OrderLookup":
-                    result = orderLookup(toolUseBlock.input.orderId);
+                    result = await orderLookup(toolUseBlock.input.orderId);
                     break;
                 case "ShipmentTracker":
-                    result = shipmentTracker(toolUseBlock.input.orderId);
+                    result = await shipmentTracker(toolUseBlock.input.orderId);
                     break;
                 case "ReturnProcessor":
-                    result = returnProcessor(toolUseBlock.input.orderId);
+                    result = await returnProcessor(toolUseBlock.input.orderId);
                     break;
             }
 

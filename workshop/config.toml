@@ -42,13 +42,13 @@ weight = 20
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-github'></i> Workshop Repository"
 identifier = "This repository"
-url = "https://github.com/TsuKpa/001-deploy-static-site-to-s3"
+url = "https://github.com/TsuKpa/aws-ws-002-ai-powered-email-auto-replies"
 weight = 30
 
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-github'></i> Workshop Repository"
 identifier = "Source code"
-url = "https://github.com/TsuKpa/001-deploy-static-site-to-s3"
+url = "https://github.com/TsuKpa/aws-ws-002-ai-powered-email-auto-replies"
 weight = 30
 
 

@@ -6,18 +6,26 @@ chapter : false
 pre : " <b> 8. </b> "
 ---
 
-1. After all you need to create a new commit or manual trigger the workflow, if the workflow running good the result must be
+{{< img src="images/8.lambda/logo.png" title="Lambda logo" >}}
 
-{{< img src="images/7.result/07-result.png" title="07-result" >}}
+### Overview
 
-2. Recheck S3 bucket have that data
+**An Amazon Lambda function** is a serverless computing service that allows you to run code without provisioning or managing servers. You simply upload your code, and Lambda takes care of everything required to run and scale your application.
 
-{{< img src="images/7.result/08-result.png" title="08-result" >}}
+- Benefits of Using Lambda Functions:
 
-3. Copy Cloudfront URL
+    - **Serverless Architecture**: No need to manage servers.
+    - **Pay-as-you-go Pricing**: Pay only for what resource you consumed.
+    - **Automatic Scaling**: Automatically respond to code execution requests at any scale, from a dozen events per day to hundreds of thousands per second..
+    - **Rapid Deployment**: Deploy code quickly and easily.
+    - **Integration with Other AWS Services**: Seamless integration with various AWS services.
 
-{{< img src="images/7.result/02-result.png" title="02-result" >}}
+- Common Use Cases: Data Processing, Real-time Applications, Web and Mobile Backends, Image and Video Processing, Machine Learning,...
 
-4. You can go to Cloudfront URL in new tab to view your result
+### Content
 
-{{< img src="images/7.result/09-result.png" title="09-result" >}}
+In this workshop, we have 3 lambda functions with difference missions:
+
+8.1. [Create Extract Email Function](8.1-extract-email-function/)\
+8.2. [Create Generate Email Function](8.2-generate-email-function/)\
+8.3. [Create Send Email Function](8.3-send-email-function)

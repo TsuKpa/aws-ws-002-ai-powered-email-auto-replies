@@ -22,6 +22,6 @@ In this step, we will create S3 bucket for store our app source code.
 
 ### Content
 
-3.1. [Create S3 bucket name](3.1-create-bucket/)\
+3.1. [Create S3 bucket](3.1-create-bucket/)\
 3.2. [Create folders](3.2-create-folders/)\
 3.3. [Upload documents](3.3-upload-documents/)

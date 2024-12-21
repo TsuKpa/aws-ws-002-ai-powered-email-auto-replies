@@ -55,4 +55,5 @@ By leveraging serverless architecture and AI, businesses can create powerful and
 - **Lambda Functions:** Serverless compute service for processing emails, generating responses (**multi-agent-orchestrator**) and sending emails.
 - **Amazon DynamoDB:** NoSQL database for storing orders data.
 - **Amazon SES:** Simple Email service for receiving and sending automated email responses.
+- **Custom domain**: A custom domain outside of AWS i just bought them in matbao.
 - **IAM:** Identity and Access Management for secure access control.

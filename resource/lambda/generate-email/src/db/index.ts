@@ -56,11 +56,11 @@ const shipmentDb: Record<string, any> = {
 // };
 
 // Functions for tools
-export const orderLookup = (orderId: string): any => {
-    return env.ENV === "prod" ? getOrderById(orderId) : orderDb[orderId];
+export const orderLookup = async (orderId: string): Promise<any> => {
+    return env.ENV === "prod" ? await getOrderById(orderId) : orderDb[orderId];
 };
-export const shipmentTracker = (orderId: string): any => {
-    return env.ENV === "prod" ? getShipmentByOrderId(orderId) : shipmentDb[orderId];
+export const shipmentTracker = async (orderId: string): Promise<any> => {
+    return env.ENV === "prod" ? await getShipmentByOrderId(orderId) : shipmentDb[orderId];
 };
 
 export const returnProcessor = (orderId: string): string => `Return initiated for order ${orderId}`;

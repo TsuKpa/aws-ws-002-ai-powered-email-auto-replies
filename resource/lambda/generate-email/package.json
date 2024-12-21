@@ -12,7 +12,7 @@
   "engines": {
     "node": ">=16"
   },
-  "author": "",
+  "author": "tsukpa",
   "license": "ISC",
   "description": "",
   "dependencies": {

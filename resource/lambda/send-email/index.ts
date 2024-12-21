@@ -40,9 +40,9 @@ export const handler: Handler = async (event: SQSEvent): Promise<void> => {
 };
 
 const sendEmailToCustomer = async (event: SQSEvent): Promise<S3Data | null> => {
-    logger.info('Sending email to customer', event.Records.toString());
+    // logger.info('Sending email to customer', event.Records.toString());
     const sqsData = event.Records[0];
-    logger.info('Body', sqsData.body);
+    // logger.info('Body', sqsData.body);
     if (sqsData) {
         const data: MessageData = JSON.parse(sqsData.body);
         const params: SendEmailCommandInput = {
@@ -65,7 +65,7 @@ const sendEmailToCustomer = async (event: SQSEvent): Promise<S3Data | null> => {
 }
 
 const saveResponseToS3 = async (content: S3Data) => {
-    logger.info('Saving response to S3', content);
+    // logger.info('Saving response to S3', content);
     await s3.send(
         new PutObjectCommand({
             Bucket: env.bucketName,
