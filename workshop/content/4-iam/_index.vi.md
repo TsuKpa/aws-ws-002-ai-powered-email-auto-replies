@@ -7,7 +7,7 @@ pre : " <b> 4. </b> "
 ---
 
 
-{{< img src="images/5.iam/iam.png" title="iam logo" >}}
+{{< img src="images/5.iam-new/iam.png" title="iam logo" >}}
 
 ### Tổng quan
 
